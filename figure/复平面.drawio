@@ -1,0 +1,57 @@
+<mxfile host="Electron" modified="2023-12-14T11:17:37.096Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.6.5 Chrome/114.0.5735.243 Electron/25.3.1 Safari/537.36" etag="jo9il7HE5NqsHA_sSqTi" version="21.6.5" type="device">
+  <diagram name="第 1 页" id="MaitGPI-S_txmcD9HwoG">
+    <mxGraphModel dx="627" dy="469" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="jPiYd9RU20gvULt59Yll-2" value="坐标轴" parent="0" />
+        <mxCell id="8UdL5ykclIeKqm7qH8z4-0" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Times New Roman;" parent="jPiYd9RU20gvULt59Yll-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="440" as="sourcePoint" />
+            <mxPoint x="460" y="440" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8UdL5ykclIeKqm7qH8z4-1" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Times New Roman;" parent="jPiYd9RU20gvULt59Yll-2" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="440" as="sourcePoint" />
+            <mxPoint x="280" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="jPiYd9RU20gvULt59Yll-3" value="图线" parent="0" />
+        <mxCell id="8UdL5ykclIeKqm7qH8z4-3" value="" style="endArrow=classic;html=1;rounded=0;fontFamily=Times New Roman;" parent="jPiYd9RU20gvULt59Yll-3" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="280" y="440" as="sourcePoint" />
+            <mxPoint x="390" y="330" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="8UdL5ykclIeKqm7qH8z4-2" value="文本" parent="0" />
+        <mxCell id="8UdL5ykclIeKqm7qH8z4-5" value="$$y$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="265" y="240" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-4" value="$$x$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="445" y="414.5" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-3" value="$$P$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="345" y="310" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-5" value="虚轴" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=黑体;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="290" y="240" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-6" value="实轴" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=黑体;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="470" y="414.5" width="50" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-7" value="复向量" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=黑体;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="384" y="353" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-9" value="$$(x,y) \leftrightarrow&amp;nbsp;z=x+iy$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="360" y="290" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-11" value="$$\overrightarrow{OP}&amp;nbsp;\leftrightarrow&amp;nbsp;P(x,y) \leftrightarrow{z}$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="275" y="330" width="350" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="znfay48kux2PREKNp4i7-12" value="$$0$$" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontFamily=Times New Roman;" parent="8UdL5ykclIeKqm7qH8z4-2" vertex="1">
+          <mxGeometry x="246" y="430" width="50" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

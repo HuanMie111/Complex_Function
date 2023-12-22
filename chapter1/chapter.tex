@@ -1,0 +1,205 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{解析函数}
+
+\section{复数及其运算}
+
+\subsection{复数(Complex)的概念}
+
+\[ \sqrt{-1}=\mi,\quad{\mi}^2=-1 \]
+\[z = x + \mi y,\quad x,y\in \Rs \]
+\textcolor{blue}{实部} $\re{z} = x$，\textcolor{blue}{虚部} $\im{z} = y$.\\
+$z\in\Cs$，$z=\re{z}+(\im{z}) \mi$
+
+复共轭 (Complex Conjugation) (C. C.) $\bar{z}$
+\[\bar{z} = x - \mi y,\quad \bar{\mi} =-\mi\]
+\begin{equation} \label{eq:共轭关系}
+    \left\{ 
+    \begin{lgathered} 
+        x = \frac{1}{2}(z + \bar{z})\\ 
+        y = \frac{1}{2\mi}(z - \bar{z}) 
+    \end{lgathered}   
+    \right.
+\end{equation}
+
+\begin{equation*}
+    \left\{ 
+    \begin{lgathered} 
+        z = x + \mi y\\ 
+        z = \rho (\cos \varphi + \mi \sin \varphi)\\
+        z = \rho \me^{\mi\varphi}
+    \end{lgathered}   
+    \right.
+\end{equation*}
+
+\subsection{复数的表示}
+
+\noindent (1) 复平面 (\hyperref[fig:复平面]{Fig.~\ref{fig:复平面}})
+\begin{figure}
+    \centering
+    \includegraphics{复平面.pdf}
+    \caption{\label{fig:复平面} 复平面}
+\end{figure}
+
+\noindent (2) 三角函数 (\hyperref[fig:极坐标系下的复平面]{Fig.~\ref{fig:极坐标系下的复平面}})
+\begin{equation*}
+    \left\{ 
+    \begin{lgathered} 
+        x = \rho \cos \varphi \\ 
+        y = \rho \sin \varphi, 
+    \end{lgathered}   
+    \right. \quad
+    \left\{ 
+    \begin{lgathered} 
+        \rho^2 = x^2 + y^2 \\ 
+        \tan \varphi = \frac{y}{x}\quad (x\neq 0)
+    \end{lgathered}   
+    \right.
+\end{equation*}
+$\rho$ 和 $\varphi$ 满足：
+\begin{equation*}
+    \left\{ 
+    \begin{lgathered} 
+        0 \leqslant \rho < \infty\\ 
+        -\infty < \varphi < +\infty. 
+    \end{lgathered}   
+    \right.
+\end{equation*}
+
+\begin{figure}
+    \centering
+    \includegraphics{极坐标系下的复平面.pdf}
+    \caption{\label{fig:极坐标系下的复平面} 极坐标系下的复平面}
+\end{figure}
+
+\noindent (3) 负指数
+\[ z = \rho(\cos\varphi+\mi\sin\varphi)=\rho\me^{\mi \varphi}\]
+$\rho=\left\lvert z \right\rvert $，辐角主值 $\arg{z}$ 
+满足 $0 \leqslant \arg{z} < 2\mpi$，也有书中为 $-\mpi < \arg{z} \leqslant \mpi$,
+\[\varphi=\Arg{z}=\arg{z}+2k\mpi,\quad (k\in \Zs).\]
+\colorstar 复数$0$的辐角无意义。
+\[\bar{z}=\rho\me^{-\mi \varphi}\]
+无限远点：模为无限大的复数与复平面的对应点，记为 $\infty$。$\rho$ 无限大，辐角无意义。\\
+测地投影，复数球，Riemann 球
+\begin{equation*}
+    \arg{z}=
+    \left\{ 
+    \begin{lgathered} 
+        \arctan \frac{y}{x},\quad (x>0,\;y>0)\ \mbox{一象限}\\ 
+        \arctan \frac{y}{x},\quad (x>0,\;y<0)\ \mbox{四象限}\\
+        \arctan \frac{y}{x}+\mpi,\quad (x<0,\;y>0)\ \mbox{二象限}\\
+        \arctan \frac{y}{x}-\mpi,\quad (x<0,\;y<0)\ \mbox{三象限}
+    \end{lgathered}   
+    \right.
+\end{equation*}
+
+\subsection{复数的运算}
+
+\noindent $\mi^2=-1$\\
+$\mi^{4n}=1,\quad\mi^{4n+1}=\mi,\quad\mi^{4n+2}=-1,\quad\mi^{4n+3}=-\mi,\quad n\in \Zs.$\\
+设 $z_1=x_1+\mi y_1$，$z_2=x_2+\mi y_2$，\\
+\ding{172} 若 $z_1=z_2$，则 $x_1=x_2$ 且 $y_1=y_2$；\\
+\ding{173} 若 $z=x+y\mi=0$，则 $x=0$ 且 $y=0$
+
+\noindent 四则运算\\
+加法：$z_1+z_2=(x_1+x_2)+\mi (y_1+y_2)$\\
+减法：$z_1-z_2=(x_1-x_2)+\mi (y_1-y_2)$\\
+乘法：$z_1 \cdot z_2=x_1x_2-y_1y_2+\mi (x_1y_2+x_2y_1)$
+\begin{flalign*}
+    \mbox{除法：}\frac{z_2}{z_1} & = \frac{x_2+y_2\mi}{x_1+y_1\mi}&\\
+        & = \frac{(x_2+y_2\mi)(x_1-y_1\mi)}{x_1^2+y_1^2}&\\
+        & = \frac{x_1x_2+y_1y_2+(x_1y_2-x_2y_1)\mi}{x_1^2+y_1^2}&
+\end{flalign*}
+\begin{align*}
+    \left\lvert z_1+z_2\right\rvert & \leqslant \left\lvert z_1\right\rvert + \left\lvert z_2 \right\rvert\\
+    \left\lvert z_1-z_2\right\rvert & \geqslant \left\lvert \left\lvert z_1\right\rvert - \left\lvert z_2 \right\rvert \right\rvert
+\end{align*}
+
+\noindent 棣莫弗公式：
+\[(\cos \varphi+\mi \sin\varphi)^n=\cos (n\varphi)+\mi\sin(n\varphi). \]
+指数形式下的乘除法和开方：
+\begin{flalign*}
+    & \mbox{设\ }z = \rho \me^{\mi\varphi},\ z_1=\rho_1 \me^{\mi\varphi_1},\ z_2=\rho_2 \me^{\mi\varphi_2}&\\
+    & z_1\cdot z_2=\rho_1 \rho_2 \me^{\mi(\varphi_1+\varphi_2)}&\\
+    & \frac{z_2}{z_1} = \frac{\rho_2}{\rho_1} \me^{\mi(\varphi_2-\varphi_1)}\quad (z_1 \neq 0)&\\
+    & \sqrt[n]{z}=z^\frac{1}{n}=\rho^\frac{1}{n} \me^{\mi(\frac{\varphi+2k\mpi}{n}),\quad (k=0,1,2,\ldots,n-1)
+    \mbox{\quad n 个不同的复数}}
+\end{flalign*}
+
+\noindent \colorstar 形如 $\arg{\frac{z-\mi}{z+\mi}}$ 的几何意义：\\
+到 $\mi$ 和到 $-\mi$ 的复向量辐角主值的差 (或者可以认为是夹角)。\\
+\colorstar $z^2 \neq \left\lvert z \right\rvert^2$，两个不是一回事。\\
+\colorstar[blue] $g(\mi)^{f(\mi)}$，可以先将 $g(\mi)$ 表示为复指数形式。
+例如：$(2\mi)^\mi=(2\me^{(\frac{\mpi}{2}+2k\mpi)\mi})^\mi$。\\
+\colorstar[blue] $\mbox{三角函数}(f(\mi))$，可以使用 $\frac{z-\bar{z}}{2}$ 方法计算\\
+\colorstar[blue] 复杂的三角函数式可以引入复指数处理，例如P6 3.6, 3.7。
+
+\subsection{复数的几何意义---复向量的意义和应用}
+
+\noindent 平面曲线 $f(x,y)=0$ 的复表示方程 $F(z,\bar{z})=0$。\\
+将\hyperref[eq:共轭关系]{公式\,(\ref{eq:共轭关系})}\,代入 $f(x,y)=0$，得：
+\[f(\frac{1}{2}(z + \bar{z}),\frac{1}{2\mi}(z - \bar{z}))=0,\mbox{\ 设为\ }F(z,\bar{z})=0\]  %TODO F(z)
+
+\begin{figure}
+    \centering
+    \includegraphics{复数和差.pdf}
+    \caption{\label{fig:复数和差} 复数和差}
+\end{figure}
+
+\[ \left\lvert z_1+z_2\right\rvert^2 + \left\lvert z_1-z_2\right\rvert^2 = 
+    2 \left\lvert z_1\right\rvert^2 + 2 \left\lvert z_2\right\rvert^2 \]
+
+\section{复变函数}
+
+\[w(z)=u(x,y)+\mi v(x,y),
+\quad z=x+y\mi \in \Cs,\;x,y\in \Rs,\;u(x,y),v(x,y)\in \Rs\]
+$w=f(z),\quad z\in E,\quad f(z)=u(x,y)+\mi v(x,y)$
+% TODO: 插图
+
+\noindent 区域---点集\\
+\ding{172} 点的邻域：$\left\lvert z-z_0\right\rvert<\varepsilon$ 是以 $z_0$ 为中心，
+$\varepsilon$ 为半径的 $z_0$ 的领域/ $\varepsilon$-邻域。\\
+\ding{173} 内点：若 $z_0$ 是点集 $E$ 的内点，则总可以找到 $z_0$ 的一个邻域完全属于 $E$。\\
+\ding{174} 外点：若 $z_0$ 是点集 $E$ 的外点，则总可以找到 $z_0$ 的一个邻域完全不属于 $E$。\\
+\ding{175} 区域 $\sigma$：\romannumeral1. 全由内点构成；\romannumeral2. 连通性。\\
+\ding{176} 界点：\romannumeral1. 不是内点；\romannumeral2. 无论怎样的邻域，其内总含有内点。\\
+\ding{177} 边界\,(线) $l$：界点的集合。\\
+\ding{178} 闭区域 $\overline{\sigma}=\sigma+l$\\
+\ding{179} 单连通区域：区域内任取一条封闭的曲线，其包围的点都是内点。\\
+\ding{180} 复连通区域：非单连通区域的区域。(\textcolor{blue}{有洞的}区域)\\
+% TODO: 插图
+\colorstar 两种区域内的任两点都可以通过完全在区域内的曲线连接起来。\\
+边界的方向：正向---内部在前进方向的左手边。(外边界：逆时针；内边界：顺时针)
+
+\begin{defn}{复变函数的极限}{连续性}
+    $w=f(z)$ 在 $z_0$ 点的某邻域有定义。若对 $\forall \varepsilon >0$，总 $\exists \delta >0$，
+    当 $0<\left\lvert z-z_0\right\rvert<\delta$ 的区域内，
+    使 $\left\lvert f(z)-w_0\right\rvert<\varepsilon$，其中 $w_0$ 为唯一确定的复数，
+    则称 $w_0$ 为 $f(z)$ 在 $z_0$ 处的极限。记为 $\lim_{z\rightarrow z_0}f(z)=w_0$。
+\end{defn}
+\begin{rmk}{}
+    $f(z)$ 在 $z_0$ 的任何方向趋于 $w_0$。
+\end{rmk}
+点连续定义 \rightarrow $\sigma$ 连续定义 \rightarrow $\overline{\sigma}$ 连续定义
+
+\noindent 若 $f(z)$ 在 $\overline{\sigma}$ 上连续，有：\\
+(1) $f(z)$ 在 $\overline{\sigma}$ 上有界；\\
+(2) $f(z)$ 在 $\overline{\sigma}$ 上一致连续。\\
+即对 $\forall \varepsilon >0$，总 $\exists \delta >0$，$\delta$ 无关于 $z$，
+对 $\overline{\sigma}$ 中满足 $\left\lvert z_1-z_2\right\rvert<\delta$
+的任意两点，使得 $\left\lvert f(z_1)-f(z_2)\right\rvert<\varepsilon$。
+
+
+
+
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

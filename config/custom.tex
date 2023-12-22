@@ -1,0 +1,27 @@
+% \def\d{\mathrm{d}}
+\def\Rs{\mathbb{R}}
+\def\Cs{\mathbb{C}}
+\def\Zs{\mathbb{Z}}
+\newcommand\mpi{\uppi}
+\newcommand\mi{\mathrm{i}} 
+\newcommand\me{\mathrm{e}}
+\newcommand*{\dif}{\mathop{}\!\mathrm{d}}  % 微分算符 d
+% \newcommand{\bs}[1]{\boldsymbol{#1}}
+\newcommand{\ora}[1]{\overrightarrow{#1}}
+\newcommand{\myspace}[1]{\par\vspace{#1\baselineskip}}
+\newcommand{\xrowht}[2][0]{\addstackgap[.5\dimexpr#2\relax]{\vphantom{#1}}}
+\newenvironment{ca}[1][1]{\linespread{#1} \selectfont \begin{cases}}{\end{cases}}
+\newenvironment{vx}[1][1]{\linespread{#1} \selectfont \begin{vmatrix}}{\end{vmatrix}}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\newcommand{\pll}{\kern 0.56em/\kern -0.8em /\kern 0.56em}
+\newcommand{\bit}[1]{\symbfit{#1}}  % 加粗斜体
+\newcommand{\Arg}[1]{\mathrm{Arg}\;#1}  % 辐角 Arg
+\newcommand{\Div}[1]{\mathrm{div}\;#1}  % 散度 div
+\newcommand{\grad}[1]{\mathrm{grad}\;#1}  % 梯度 grad
+\newcommand{\Rot}[1]{\mathrm{rot}\;#1}  % 旋度 rot
+\newcommand{\re}[1]{\mathrm{Re}\;#1}  % 实部 Re
+\newcommand{\im}[1]{\mathrm{Im}\;#1}  % 虚部 Im
+\newcommand*{\colorstar}[1][black]{\textcolor{#1}{\ast\quad}}  % 星星开头的重点行 (可改变星星颜色)
+% 彩色的文字及下划线
+\newcommandx*{\coloruline}[3][1=black, 2=black, usedefault]{
+    \textcolor{#1}{\!\uline{\textcolor{#2}{#3}}}}  % 未完成此功能,下划线换行问题
