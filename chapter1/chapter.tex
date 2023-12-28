@@ -108,7 +108,7 @@ $\mi^{4n}=1,\quad\mi^{4n+1}=\mi,\quad\mi^{4n+2}=-1,\quad\mi^{4n+3}=-\mi,\quad n\
 \ding{172} 若 $z_1=z_2$，则 $x_1=x_2$ 且 $y_1=y_2$；\\
 \ding{173} 若 $z=x+y\mi=0$，则 $x=0$ 且 $y=0$
 
-\noindent 四则运算\\
+\noindent \textbf{四则运算}\\
 加法：$z_1+z_2=(x_1+x_2)+\mi (y_1+y_2)$\\
 减法：$z_1-z_2=(x_1-x_2)+\mi (y_1-y_2)$\\
 乘法：$z_1 \cdot z_2=x_1x_2-y_1y_2+\mi (x_1y_2+x_2y_1)$
@@ -160,12 +160,16 @@ $\mi^{4n}=1,\quad\mi^{4n+1}=\mi,\quad\mi^{4n+2}=-1,\quad\mi^{4n+3}=-\mi,\quad n\
 
 \[w(z)=u(x,y)+\mi v(x,y),
 \quad z=x+y\mi \in \Cs,\;x,y\in \Rs,\;u(x,y),v(x,y)\in \Rs\]
-$w=f(z),\quad z\in E,\quad f(z)=u(x,y)+\mi v(x,y)$
-% TODO: 插图
+$w=f(z),\quad z\in E,\quad f(z)=u(x,y)+\mi v(x,y)$ (\hyperref[fig:复变函数的对应关系]{Fig.~\ref{fig:复变函数的对应关系}})
+\begin{figure}
+    \centering
+    \includegraphics{复变函数的对应关系.pdf}
+    \caption{\label{fig:复变函数的对应关系} 复变函数的对应关系}
+\end{figure}
 
-\noindent 区域---点集\\
+\noindent 区域 (\hyperref[fig:区域]{Fig.~\ref{fig:区域}})---点集\\
 \ding{172} 点的邻域：$\left\lvert z-z_0\right\rvert<\varepsilon$ 是以 $z_0$ 为中心，
-$\varepsilon$ 为半径的 $z_0$ 的领域/ $\varepsilon$-邻域。\\
+$\varepsilon$ 为半径的 $z_0$ 的邻域/ $\varepsilon$-邻域。\\
 \ding{173} 内点：若 $z_0$ 是点集 $E$ 的内点，则总可以找到 $z_0$ 的一个邻域完全属于 $E$。\\
 \ding{174} 外点：若 $z_0$ 是点集 $E$ 的外点，则总可以找到 $z_0$ 的一个邻域完全不属于 $E$。\\
 \ding{175} 区域 $\sigma$：\romannumeral1. 全由内点构成；\romannumeral2. 连通性。\\
@@ -174,7 +178,11 @@ $\varepsilon$ 为半径的 $z_0$ 的领域/ $\varepsilon$-邻域。\\
 \ding{178} 闭区域 $\overline{\sigma}=\sigma+l$\\
 \ding{179} 单连通区域：区域内任取一条封闭的曲线，其包围的点都是内点。\\
 \ding{180} 复连通区域：非单连通区域的区域。(\textcolor{blue}{有洞的}区域)\\
-% TODO: 插图
+\begin{figure}
+    \centering
+    \includegraphics{区域.pdf}
+    \caption{\label{fig:区域} 区域}
+\end{figure}
 \colorstar 两种区域内的任两点都可以通过完全在区域内的曲线连接起来。\\
 边界的方向：正向---内部在前进方向的左手边。(外边界：逆时针；内边界：顺时针)
 
@@ -196,9 +204,222 @@ $\varepsilon$ 为半径的 $z_0$ 的领域/ $\varepsilon$-邻域。\\
 对 $\overline{\sigma}$ 中满足 $\left\lvert z_1-z_2\right\rvert<\delta$
 的任意两点，使得 $\left\lvert f(z_1)-f(z_2)\right\rvert<\varepsilon$。
 
+\section{导数与解析函数}
 
+\begin{defn}{可微}{}
+    若 $f(z)$ 在 $z$ 及其邻域单值连续，
+    \[\lim_{\Delta z \to 0} \frac{f(z+\Delta z)-f(z)}{\Delta z}\]
+    在 $z$ 处存在且唯一，且与 $\Delta z \to 0$ 的方式无关，则称 $f(z)$ 在 $z$ 处可微 (可导)，
+    记为 $f'(z)=\frac{\dif f}{\dif z}$。
+\end{defn}
 
+\noindent 解析：$f(z)$ 在点 $z_0$ 及其邻域上处处可导。\\
+\colorstar[red] 点和邻域都可导 \to 点解析\\
+解析函数：若 $f(z)$ 在 $B$ 区域上的每一点都解析，则称 $f(z)$ 是 $B$ 区域上的解析函数。\\
+对一个点：可导$\nrightarrow \leftarrow $解析\\
+对一个区域 (不包括闭区域)：可导$\leftrightharpoons$解析
 
+\begin{them}{柯西黎曼条件 (C-R 条件)}{C-R 条件}
+    $f(z)=u+\mi v$ 在 $\sigma$ 区域解析的一个必要不充分条件是：
+    \[f'(z)=\lim_{\Delta z \to 0} \frac{\Delta f}{\Delta z}
+    =\lim_{\Delta z \to 0} \frac{\Delta u+\mi \Delta v}{\Delta x+\mi \Delta y}.\]
+    根据沿实轴方向逼近于 $0$ 和沿平行虚轴方向趋于 $0$ 两种情形，得出：
+    \begin{equation*}
+        \left\{ 
+        \begin{lgathered}
+            \frac{\partial u}{\partial x} = \frac{\partial v}{\partial y}\\
+            \frac{\partial v}{\partial x} = -\frac{\partial u}{\partial y},
+        \end{lgathered}
+        \right.
+    \end{equation*}
+    对区域 $\sigma$ 的每一点都成立，即为 \textcolor{blue}{C-R 条件}。
+\end{them}
+
+\colorstar C-R 条件的其他表示：
+\begin{equation*}
+    \left\{ 
+        \begin{lgathered}
+            u_x = v_y\\
+            u_y = -v_x
+        \end{lgathered}
+    \right. \mbox{或}
+    \left\{ 
+        \begin{lgathered}
+            u_\rho = \frac{1}{\rho}v_\varphi\\
+            u_\varphi = -\rho v_\rho.
+        \end{lgathered}
+    \right. 
+\end{equation*}
+
+\noindent \textbf{求导规则}\\
+$(c_1 f_1(z)+c_2 f_2(z))'=c_1 f_1'(z)+c_2 f_2'(z)$\\
+$(f_1(z) f_2(z))'=f_1'(z)f_2(z)+f_1(z)f_2'(z)$\\
+$(\frac{f_2(z)}{f_1(z)})'=\frac{f_2'(z)f_1(z)-f_1'(z)f_2(z)}{f_1^2(z)}$\\
+$(F[G(z)])'=F'[G(z)]G'(z)$
+
+\noindent 在 $\sigma$ 处处可导的一个充要条件：\\
+\ding{172} $u_x$，$u_y$，$v_x$，$v_y$ 存在且连续 ($u$，$v$ 在 $\sigma$ 上存在连续的 $1$ 阶偏导数)；\\
+\ding{173} C-R 条件 (在 $\sigma$ 上)。
+
+\noindent 若 $f$ 在 $\sigma$ 上处处可导，有：
+\begin{align*}
+    \frac{\partial f}{\partial z} & = u_x+\mi v_x = u_x-\mi u_y\\
+        & = v_y+\mi v_x = v_y-\mi u_y.
+\end{align*}
+
+\section{解析函数}
+
+\noindent \textbf{解析函数的性质}：\\
+(线性性) 若 $f(z)=u+\mi v$ 在 $B$ 上解析，\\
+(1) $u(x,y)=C_1$，$v(x,y)=C_2$ ($C_1$，$C_2$ 为常数) (等值线) 是 $B$ 上的两组正交曲线族。\\
+(2) $u$，$v$ 均为 $B$ 上的调和函数，即 $u$，$v$ 在 $B$ 上有二阶连续偏导数，且 $\Delta u=\Delta v=0$。
+$u$，$v$ 又被称为共轭调和函数。\\
+\colorstar 可以从其中一个求出另一个，有三种方法：(1) 曲线积分法；(2) 凑全微分显式法；(3) 不定积分法。
+
+\noindent \colorstar[blue] $f(z)=u(x,y)+\mi v(x,y)$ 的表达式很复杂不易转化为 $z$ 的显式表达式时，
+可以令 $x=z-\mi y$ 代入化简。\\
+\colorstar[blue] $\frac{1}{\rho^2}(\cos 2\theta -\mi \sin 2\theta)=\frac{1}{z^2}$\\
+\colorstar[blue] $\frac{\partial x}{\partial z}=\frac{1}{2}\quad (x=\frac{z+\overline{z}}{2})$
+
+\noindent \textbf{初等解析函数}
+
+1. 幂函数\quad\  $w(z)=z^n$\quad $(n\in \Zs)$
+\begin{equation*}
+    \left\{ 
+    \begin{lgathered} 
+        n\geqslant 0,\quad w(z)=z^n\mbox{\ 处处解析}\\
+        n < 0,\quad w(z)=z^n\mbox{\ 除\ }z=0\mbox{\ 处在复平面处处解析}
+    \end{lgathered}   
+    \right.
+\end{equation*}
+若 $s=a+\mi b\in\Cs$，$w(z)=z^s=e^{s\ln z}$。
+
+2. 指数函数\quad\  $w(z)=e^z$
+\[w=e^z=e^x(\cos y+\mi\sin y)\]
+在复平面上 (\textcolor{blue}{不包括无穷远点}) 处处解析。
+\begin{rmk}{}
+    $e^z$ 具有虚周期 $2\mpi \mi$。
+\end{rmk}
+
+3. 三角函数
+\begin{align*}
+    w(z) &= \sin z =\frac{e^{\mi z}-e^{-\mi z}}{2\mi}\\
+    w(z) &= \cos z =\frac{e^{\mi z}+e^{-\mi z}}{2}\\
+    w(z) &= \tan z =\frac{\sin z}{\cos z}\quad (\cos z\neq 0)
+\end{align*}
+\begin{rmk}{}
+    \ding{172} $\sin^2 z+\cos^2 z=1$，和差倍分公式、同角的不同三角函数关系、导数公式都成立；
+    \ding{173} $\left\lvert \sin z\right\rvert$ 和 $\left\lvert \cos z\right\rvert$ 可能大于 $1$；
+    \ding{174} $\sin z$，$\cos z$ 具有实周期 $2\mpi$。
+\end{rmk}
+
+4. 双曲函数
+\begin{align*}
+    \sinh z & = \frac{e^{z}-e^{-z}}{2}\\
+    \cosh z & = \frac{e^{z}+e^{-z}}{2}\\
+    \tanh z & = \frac{\sinh z}{\cosh z}\\
+    \sech z & = \frac{1}{\cosh z}\\
+    \cosech z & = \frac{1}{\sinh z}
+\end{align*}
+\begin{rmk}{}
+    \ding{172} $\cosh^2 z - \sinh^2 z \equiv 1$；
+    \ding{173} $\sinh z$，$\cosh z$ 具有纯虚数周期 $2\mpi\mi$。
+\end{rmk}
+\begin{equation*}
+    \left\{ 
+    \begin{lgathered} 
+        \cos \mi x=\cosh x\\
+        \sin \mi x=\mi \sinh x,
+    \end{lgathered}   
+    \right.\quad
+    \left\{ 
+    \begin{lgathered} 
+        \cosh \mi x=\cos x\\
+        \sinh \mi x=\mi \sin x.
+    \end{lgathered}   
+    \right.
+\end{equation*}
+
+5. 根式函数\quad\  $w(z)=\sqrt[n]{z},\quad n\in \Ns$
+\[w=r^{\frac{1}{n}}e^{\mi\frac{\theta+2k\mpi}{n}}\quad (k=0,1,2,\dots,n-1)\]
+
+6. 对数函数\quad\  $w(z)=\ln{z}$
+\[w(z)=\ln r +\mi (\theta +2k\mpi),\quad k\in \Zs \]
+\begin{rmk}{}
+    多值函数，有无穷多个支，$z=0$ 和 $z=\infty$ 是两个支点。
+\end{rmk}
+\[\ln e^z=z+2k\mpi\mi,\quad k\in \Zs\]
+\colorstar[blue] $\ln a=\ln \left\lvert a\right\rvert +\mi (2n+1)\mpi$，$a\in \Rs$ 时。
+
+7. 一般的指数函数\quad\  $w=a^z,\quad a\neq 0,\;a\in\Cs$
+\[w=e^{z\ln a}\]
+
+8. 一般的幂函数\quad\  $w=z^s,\quad s\in\Cs$
+\[w=e^{s\ln z}\]
+
+\colorstar $\ln z$ 和 $z^{\frac{1}{n}}$ 是一对多的“函数” (多值函数)。
+\section{平面标量场}
+
+恒定场\quad 平面场\quad (\hyperref[fig:u和v]{Fig.~\ref{fig:u和v}})
+\begin{figure}
+    \centering
+    \includegraphics{u和v.pdf}
+    \caption{\label{fig:u和v} u和v}
+\end{figure}
+\begin{rmk}{}
+    \ding{172}~$v(x,y)=C$ 是 \textasciitilde 线族，但不是该矢量的场函数。
+    $v(x,y)=C$ 在这一点的方向与矢量方向相同，密集程度等于矢量的大小。
+    曲线族 $u=C$ 和 $v=C$ 形成的网络叫等温网。
+    \ding{173}~若已知 $h(x,y)=C$ 是其中一组等值线，那 $u$ 和 $v$ 不一定等于 $h$，
+    $u$ 或 $v$ 应该为 \uwave{$F(h(x,y))$}。
+\end{rmk}
+
+\section{多值函数}
+
+\noindent 支点：对于多值函数 $w=f(z)$，若 $z$ 绕某点一周，函数值 $w$ 不复原，
+而在该点各单值分支函数值相同，则称该点为多值函数的支点。
+$z$ 绕 $n$ 周复原，便称该点为 $n-1$ 阶支点。
+
+\colorstar 支点必是奇点。
+
+\begin{example}{}
+    对于 $w=\sqrt{z}$，
+    \begin{equation*}
+        \left\{ 
+        \begin{lgathered} 
+            w_1=\sqrt{\left\lvert z\right\rvert }e^{\mi \arg \frac{z}{2}}\\
+            w_2=\sqrt{\left\lvert z\right\rvert }e^{\mi \arg \frac{z}{2}+\mi \mpi},
+        \end{lgathered}   
+        \right.
+    \end{equation*}
+    $z=0$ 和 $z=\infty$ 是 $w=\sqrt{z}$ 的一阶支点。
+\end{example}
+\colorstar 包围了所有有限远支点，也就包围了 $\infty$ 支点。\\
+$w(z)=\ln{z}$ 的支点是 $z=0,\infty$。
+
+黎曼面 (Riemann 面) (一个两叶的面)\\
+支割线 \textasciitilde 跨过此线 $z$ 辐角就增加 $2\mpi$，$w$ 的值就会改变。可以作为分割多值函数的界线。
+定义一个单值的解析函数的方法。\\
+\colorstar 作支割线的方法不唯一。
+
+\begin{example}{}
+    $w=\sqrt{z^2-1}+\sqrt[3]{z^2-9}$ 是\coloruline{\textcolor{red}{六}}值函数。
+\end{example}
+\begin{solution}{}
+    几值 $2\times 3$；支点数 $2(\pm 1)\quad 3(\infty,\pm 3)$。
+\end{solution}
+
+\colorstar 判断 $\infty$ 是否为 $f(z)$ 支点时，可以作变换 $t=\frac{1}{z}$，
+分析 $0$ 是否为代换后函数的支点。
+\begin{example}{}
+    $\infty$ 是否为 $w=\sqrt{z-a}$ 的支点。
+\end{example}
+\begin{solution}{}
+    令 $z=\frac{1}{t}$，$w=\sqrt{\frac{1-at}{t}}$。\\
+    绕 $t=0$ 转一圈后，$\arg (1-at)$ 不变，$\arg t$ 增加 $2\mpi$，
+    $\arg \sqrt{t}$ 增加 $\mpi$，$w$ 减少 $\mpi$，未复原。\\
+    故 $\infty$ 是 $w=\sqrt{z-a}$ 的支点。
+\end{solution}
 
 \ifx\allfiles\undefined
 \end{document}
