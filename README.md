@@ -1,3 +1,13 @@
+# 复变函数笔记
+一个 Latex 版的复变函数笔记
+参考书目：数学物理方法 (第五版) 梁昆淼 编 (HOLD)
+参考网络课程：[【【数学】数学物理方法 武汉大学 周国全主讲（纯板书）】](https://www.bilibili.com/video/BV1ab411u7By/?share_source=copy_web&vd_source=395fa218685d9ed601790ad47114c861)(HOLD)
+
+正在更新，希望今年六月份之前能更新完。
+如果有错误和不足之处，非常欢迎提 issue 和 pull request。
+
+模板参考自知乎大佬，下面是他的模板 README 内容。
+
 # [一个LaTeX的数学笔记模板](https://zhuanlan.zhihu.com/p/604236564)
 
 ## 使用	

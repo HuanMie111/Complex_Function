@@ -7,7 +7,155 @@
 \else
 \fi
 
+\chapter{复变函数的积分}
 
+\section{复变函数的积分}
+
+\noindent (1) 路积分 
+\[\int_{l} f(z) \dif z = \lim_{\max(\left\lvert \Delta z_k \right\rvert) \to 0} 
+\sum_{k=1}^{n} f(\xi_k) \Delta z_k. \]
+代入 $f(z)\to u+\mi v$，$\dif z\to \dif x +\mi \dif y$，为：
+\begin{equation} \label{eq:路积分转化}
+    \int_{l} f(z) \dif z = \int_{l} u \dif x - v \dif y + \mi \int_{l} v \dif x + u \dif y
+\end{equation}
+
+\noindent (2) 实变函数线积分的许多性质也对路积分成立。\\
+\colorstar 路积分地位等同于实变函数的积分。\\
+\colorstar 两个积分不等式
+\[\left\lvert \int_{l} f(z) \dif z \right\rvert \leqslant 
+\int_{l} \left\lvert f(z) \right\rvert \left\lvert \dif z \right\rvert \]
+\[\left\lvert \int_{l} f(z) \dif z \right\rvert \leqslant M L \]
+
+\section{柯西定理}
+
+\noindent (一) 单连通区域的柯西定理
+
+\begin{them}{单连通区域的柯西定理}{}
+    如果函数 $f(z)$ 在闭单连通区域 $\overline{B}$ 上解析，则沿 $\overline{B}$ 上任一分段
+    光滑闭合曲线 $l$ (也可以是 $\overline{B}$ 的边界)，有 $\oint_{l} f(z) \dif z = 0$。
+\end{them}
+\begin{them}{单连通区域的柯西定理的一个推广}{}
+    如果函数 $f(z)$ 在单连通区域 $B$ 上解析，在闭单连通区域 $\overline{B}$ 上连续，
+    则沿 $\overline{B}$ 上任一分段光滑闭合曲线 $l$ (也可以是 $\overline{B}$ 的边界)，
+    有 $\oint_{l} f(z) \dif z = 0$。
+\end{them}
+
+\noindent (二) 复连通区域的柯西定理
+\begin{them}{复连通区域的柯西定理}{}
+    如果函数 $f(z)$ 是闭复连通区域上的单值解析函数，则：
+    \[\oint_{l} f(z) \dif z + \sum_{i=1}^{n} \oint_{l_i} f(z) \dif z = 0, \]
+    式中 $l$ 为区域外边界线，诸 $l_i$ 为区域内边界线，积分均沿边界线的正方向进行。
+\end{them}
+\noindent \colorstar  $\ointctrclockwise_{l} f(z) \dif z = \sum_{i=1}^{n} 
+\ointctrclockwise_{l_i} f(z) \dif z$ (方向均为逆时针方向)。\\
+\colorstar 对于闭单或闭复上的解析函数，若起点终点确定，且积分路径不跳过孔时，函数的积分值不变。
+
+\section{不定积分}
+
+\noindent $F(z) = \int_{z_0}^{z} f(\xi) \dif \xi$ (柯西型积分)\\
+$F(z)$ 在其单连通区域上是解析的。\\
+$F'(z)=f(z)$，$F(z)$ 是 $f(z)$ 的一个原函数\\
+$\int_{z_1}^{z_2} f(\xi) \dif \xi = F(z_2) - F(z_1)$
+
+\noindent \colorstar[blue] 两个重要式子
+\begin{align*}
+    \frac{1}{2\mpi\mi} \oint_{l}\;\frac{\dif z}{z-\alpha} = 
+        \left\{ 
+        \begin{lgathered} 0\quad (l\mbox{\ 不包围\ }\alpha) \\ 
+            1\quad (l\mbox{\ 包围\ }\alpha) 
+        \end{lgathered}   
+        \right.\\
+    \frac{1}{2\mpi\mi}\oint_{l}\;(z-\alpha)^n \dif z = 0 \quad (n\neq -1) 
+\end{align*}
+ 
+\section{柯西公式}
+
+\begin{them}{柯西公式}{}
+    若 $f(z)$ 在闭单连通区域 $\overline{B}$ 上解析，$l$ 为 $\overline{B}$ 的边界线，
+    $\alpha$ 为 $\overline{B}$ 内的任一点，则有柯西公式：
+    \[f(\alpha) = \frac{1}{2\mpi\mi} \oint_{l} \frac{f(z)}{z-\alpha} \dif z.\]
+    也可改写为：
+    \[f(z) = \frac{1}{2\mpi\mi} \oint_{l} \frac{f(\xi)}{\xi-z} \dif \xi.\]
+\end{them}
+
+\noindent 对于闭复连通区域，需将 $l$ 理解为所有边界线，且方向均为正向。\\
+\colorstar 若边界 $l$ 的外部区域 (包含 $\infty$) 上解析，
+有 $f(z) = \frac{1}{2\mpi\mi} \ointclockwise_{l} \frac{f(\xi)}{\xi-z} \dif \xi + f(\infty)$。\\
+\colorstar 若 $z$ 不在 $l$ 内，而在 $l$ 外，则
+$\oint_{l} \frac{f(\xi)}{\xi-z} \dif \xi = 0$。
+
+\begin{corollary}{}{}
+    解析函数可求导任意多次。
+    \[f^{(n)}(z) = \frac{n!}{2\mpi\mi} \oint_{l} \frac{f(\xi)}{(\xi-z)^{n+1}} \dif \xi.\]
+\end{corollary}
+
+\begin{corollary}{模数定理}{}
+    设 $f(z)$ 在某个闭区域上为解析，则 $\left\lvert f(z)\right\rvert $ 只能在边界线 $l$ 上取极大值。
+\end{corollary}
+\noindent \colorstar 只有边界 $l$ 上的 $f(z)\equiv \mbox{常数}$时，
+内点的 $f(z)$ 才能与边界线的 $f(z)$ 相等。
+
+\begin{corollary}{刘维尔定理}{}
+    如 $f(z)$ 在全平面上为解析，并且是有界的，即 $\left\lvert f(z)\right\rvert \leqslant M$，
+    则 $f(z)$ 必为常数。
+\end{corollary}
+
+\noindent \colorstar[red] 表示一个量或几何体随另一个量变化时，
+可用下标表示。例如 P26 (2.4.2) 中的圆 $C_\varepsilon$。
+
+\noindent \colorstar[blue] 计算路积分的方法：
+
+(1) \textcolor{blue}{转化为线积分} (\hyperref[eq:路积分转化]{公式\,(\ref{eq:路积分转化})}) 
+\textcolor{red}{($f(z)$ 不解析也可适用)}。
+\begin{example}{}
+    P22 例题。
+\end{example}
+(2) \textcolor{blue}{柯西定理 (单和复)}
+\begin{example}{}
+    P25 例题 $\oint_{l} \frac{1}{z-\alpha} \dif z$。
+\end{example}
+(3) \textcolor{blue}{柯西公式}
+\begin{example}{}
+    $\oint_{l} \frac{e^z}{z(z^2+1)} \dif z$，$l:\left\lvert z-\mi \right\rvert = \frac{1}{2}$。
+\end{example}
+\begin{solution}{}
+    $\mpi (\sin 1 - \mi\cos 1)$。
+\end{solution}
+\begin{example}{}
+    模拟题三题。
+\end{example}
+(4) \textcolor{blue}{$f(z)$ 的 $n$ 阶导数公式}
+\begin{example}{}
+    $\oint_{l} \frac{e^z}{z^n} \dif z$。
+\end{example}
+\begin{solution}{}
+    $\frac{2\mpi \mi}{(n-1)!}$。
+\end{solution}
+(5) \textcolor{blue}{留数定理}
+
+\begin{corollary}{柯西不等式}{}
+    $l: \left\lvert \xi-z \right\rvert = R$，
+    $f(z)$ 在 $\left\lvert \xi-z \right\rvert = R$ 内解析，
+    在区域 $\left\lvert \xi-z \right\rvert \leqslant R$ 上连续，且对于 $\xi\in l$，
+    $f(\xi)$ 在 $l$ 上有上界，即 $\left\lvert f(\xi) \right\rvert \leqslant M$，
+    则 $\left\lvert f^{(n)}(z) \right\rvert \leqslant \frac{n! M}{R^n}$。
+\end{corollary}
+
+\begin{corollary}{中值定理(平均值定理)}{}
+    若 $f(z)$ 在 $\left\lvert z-a \right\rvert < R$ 内解析，
+    在 $\left\lvert z-a \right\rvert \leqslant R$ 上连续，
+    则 $f(z)$ 在圆心 $a$ 处的值等于其圆周上值的平均值，即 
+    $f(a) = \frac{1}{2\mpi} \int_{0}^{2\mpi} f(a + R e^{\mi \varphi}) \dif \varphi$。
+\end{corollary}
+
+\begin{corollary}{Morera 定理 \textcolor{red}{(柯西定理的逆定理)}}{}
+    设 $f(z)$ 在 $\sigma$ 上连续，对 $\sigma$ 内任意闭合轨道 $l$ 的路积分为 $0$，
+    即 $\oint_{l} f(z) \dif z = 0$，则 $f(z)$ 在 $\sigma$ 内解析。
+\end{corollary}
+\noindent \colorstar[red] 可以用来证明 $\sigma$ 解析。\\
+\colorstar[blue] 对于 $\oint_{\left\lvert z \right\rvert = 3} \frac{1}{z^3(z^2-1)} \dif z$，
+先使用复柯定理将大路积分转化为三个小路积分，再各自使用柯西公式去求。\\
+\colorstar[blue] 注意讨论 $l$ 是否包围奇点。
 
 \ifx\allfiles\undefined
 \end{document}
