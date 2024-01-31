@@ -1,0 +1,298 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{幂级数展开}
+
+\section{复数项级数}
+
+\noindent 复数项无穷级数：
+\[\sum_{k=0}^{\infty} w_k = w_0 + w_1 + w_2 + \dots + w_k + \cdots, \quad (1)\] 
+其中每一项 $w_k=u_k+\mi v_k$。\\
+部分和 $W_n = \sum_{k=0}^\infty w_k$\\
+\colorstar 复数项无穷级数的收敛性问题可以归结为2个实数项级数的收敛性问题。\\
+\colorstar $\lim_{k\to\infty}\left\lvert w_k\right\rvert = 0$ 是 
+级数\,(1)\,收敛的必要条件。
+
+\begin{criterion}{柯西收敛判据}{}
+    级数\,(1)\,收敛的充要条件是：对于 $\forall$ 小正数 $\varepsilon$，
+    必有 $N$ 存在，使得 $n>N$ 时，$\left\lvert \sum_{k=n+1}^{n+p} w_k\right\rvert < \varepsilon$，
+    其中 $p$ 为任意正整数。
+\end{criterion}
+
+\noindent \textbf{绝对收敛}\\
+若 $\left\lvert \sum_{k=0}^{\infty} w_k\right\rvert$ 收敛，则级数\,(1)\,绝对收敛。\\
+\colorstar 绝对收敛的级数必收敛。\\
+\colorstar 绝对收敛的级数各项先后次序可以任意改变，其和不变。\\
+\colorstar 两个绝对收敛的级数，$\sum_{k=0}^{\infty} p_k = A$ 和 $\sum_{l=0}^{\infty} q_l = B$，
+逐项相乘得到的新级数也绝对收敛，且 $\sum_{k=0}^{\infty} p_k \cdot \sum_{l=0}^{\infty} q_l 
+= \sum_{k=0}^{\infty}\sum_{l=0}^{\infty} p_k q_l = \sum_{n=0}^{\infty} c_n = A B$，
+其中 $c_n = \sum_{k=0}^{n} p_k q_{n-k}$。
+
+\begin{criterion}{比值判别法 (达朗贝尔判别法)}{}
+    \begin{equation*} 
+        \lim_{k\to \infty} \left\lvert \frac{w_{k+1}}{w_k} \right\rvert = l
+            \left\{ 
+            \begin{lgathered} 
+                < 1\quad \mbox{则\ } \sum_{k=0}^{\infty} w_k\mbox{\ 绝对收敛},\\ 
+                > 1\quad \mbox{则\ } \sum_{k=0}^{\infty} w_k\mbox{\ 发散}. 
+            \end{lgathered}   
+            \right.
+    \end{equation*}
+\end{criterion}
+
+\begin{criterion}{根值判别法 (柯西判别法)}{}
+    \begin{equation*} 
+        \lim_{k\to \infty} \sqrt[k]{\left\lvert w_k \right\rvert} = r 
+        \left\{ 
+            \begin{lgathered} 
+                < 1\quad\mbox{则绝对收敛},\\ 
+                > 1\quad\mbox{则发散}. 
+            \end{lgathered}   
+        \right.
+    \end{equation*}
+\end{criterion}
+
+\noindent \colorstar 比值判别法 $l=1$ 的情况下，可以使用高斯判别法判断。
+
+\begin{criterion}{高斯判别法}{}
+    \begin{equation*} 
+        \frac{w_k}{w_{k+1}} = 1 + \frac{\mu}{k} + \mathcal{o}(\frac{1}{k}), \mbox{\ 若}
+            \left\{ 
+            \begin{lgathered} 
+                \re \mu > 1\quad \mbox{则绝对收敛},\\ 
+                \re \mu \leqslant 1\quad \mbox{则发散}. 
+            \end{lgathered}   
+            \right.
+    \end{equation*}
+\end{criterion}
+
+\noindent 函数项级数：
+\[\sum_{k=0}^{\infty} w_k (z) = w_0 (z) + w_1 (z) + w_2 (z) + \dots + w_k (z) + \cdots. \quad (2)\]
+在某个区域 $B$ (或 $l$) 上所有点\,(2)\,收敛，则称\,(2)\,在 $B$ (或 $l$) 上收敛。
+
+\noindent \textbf{收敛与一致收敛}\\
+已知\,(2)\,一致收敛，\\
+性质 (1)：若每一项 $w_k(z)$ 在 $l$ 上连续，则级数的和 $w(z)$ 也在 $l$ 上连续，
+且 $\int_l w(z) \dif z = \sum_{k=0}^{\infty} \int_l w_k (z) \dif z$。
+\textcolor{blue}{(逐项积分)}\\
+性质 (2)：若 $w_k(z)$ 在 $B$ 上连续，则 $w(z)$ 也在 $B$ 上连续。\\
+性质 (3)：若\,(2)\,在 $\overline{B}$ 上一致收敛，$w_k(z)$ 在 $\overline{B}$ 中单值解析，
+则 $w(z)$ 也是 $\overline{B}$ 上的单值解析函数，
+且 $w^{(n)}(z) = \sum_{k=0}^{\infty} w^{(n)}_k (z)$，
+且 $w^{(n)}(z)$ 在 $\overline{B}$ 内的任何一个闭区域中一致收敛。
+\textcolor{blue}{(逐项求导)}
+
+\noindent \textbf{绝对且一致收敛}
+
+\begin{criterion}{m 判别法 \textcolor{blue}{(充分但不必要)}}{}
+    如果对于某个区域 $B$ (或 $l$) 上所有点 $z$，(2)\,的各项的模 
+    $\left\lvert w_k (z) \right\rvert \leqslant m_k$，
+    且 $\sum_{k=0}^{\infty} m_k$ 收敛，则\,(2)\,在 $B$ (或 $l$) 上绝对且一致收敛。
+\end{criterion}
+
+\noindent \colorstar[red] \textcolor{red}{一致收敛的证明方法 (1)}
+
+\section{幂级数} 
+\noindent 幂级数 (以 $z_0$ 为中心的幂级数)：
+\[\sum_{k=0}^{\infty} a_k (z-z_0)^k = a_0 + a_1 (z-z_0) + a_2 (z-z_0)^2 + \cdots, \quad (3)\]
+其中 $a_0$， $z_0$， $a_1$， $\cdots$ 都是复常数。\\
+收敛半径 $R = \lim_{k\to \infty} \left\lvert \frac{a_k}{a_{k+1}} \right\rvert 
+= \lim_{k\to \infty} \frac{1}{\sqrt[k]{\left\lvert a_k \right\rvert}}$ 
+
+\begin{them}{阿贝尔 (Abel) 定理}{}
+    若\,(3)\,在圆周上一点收敛，则在圆内绝对收敛，在更小的闭圆上一致收敛。
+    (如 \hyperref[fig:幂级数的收敛域]{Fig.~\ref{fig:幂级数的收敛域}} 所示)
+\end{them}
+
+\begin{figure}
+    \centering
+    \includegraphics{幂级数的收敛域.pdf}
+    \caption{\label{fig:幂级数的收敛域} 幂级数的收敛域}
+\end{figure}
+\noindent \colorstar[red] \textcolor{red}{一致收敛的证明方法 (2)}
+
+\noindent \colorstar $\sum_{k=0}^{\infty} t^k = 1 + t + t^2 + \dots + t^k + \dots = \frac{1}{1-t} 
+\quad (\left\lvert t \right\rvert < 1)$\\
+\colorstar p级数 $\sum_{k=1}^{\infty} \frac{1}{k^p}$，$p\in \Rs$，
+当 $p\geqslant 2$ 时，收敛。
+
+\[\frac{1}{2\mpi\mi} \oint_{C_{R_1}}\frac{w(\xi)}{\xi-z}\dif \xi 
+= a_0 + a_1 (z-z_0) + \dots = w(z)\]
+($C_{R_1} $为半径小于 $1$ 的圆)\\
+幂级数的和函数在收敛圆内部解析。\\
+幂级数逐项求导或逐项积分不改变 $R$。
+
+\section{泰勒级数展开}
+
+\begin{them}{泰勒展开定理}{}
+    设 $f(z)$ 在以 $z_0$ 为圆心的圆 $C_R$ 内解析，则对圆内的任意 $z$ 点，$f(z)$ 可展为幂级数：
+\[f(z) = \sum_{k=0}^{\infty} a_k (z-z_0)^k,\]
+    其中，$a_k = \frac{1}{2\mpi\mi} \oint_{C_{R_1}}\;\frac{f(\xi)}{(\xi-z_0)^{k+1}}\dif \xi 
+    = \frac{f^{(k)} z_0}{k!}$，$C_{R_1}$ 为 $C_R$ 内包含 $z$ 且与 $C_R$ 同心的圆。
+\end{them}
+\noindent \colorstar 泰勒展开是唯一的。\\
+\textbf{泰勒展开} $f(z) = \sum_{k=0}^{\infty} \frac{f^{(k)} (z_0)}{k!} 
+(z-z_0)^k \quad (\left\lvert z-z_0 \right\rvert < R)$，
+以 $z_0$ 为中心的 \textcolor{blue}{泰勒级数}。
+
+\noindent 一些初等函数的泰勒展开：
+\begin{align*}
+    e^z & = \sum_{k=0}^{\infty} \frac{z_k}{k!}\\
+    \sin z & = \sum_{k=0}^{\infty} \frac{(-1)^k z^{2k+1}}{(2k+1)!}\\
+    \cos z & = \sum_{k=0}^{\infty} \frac{(-1)^k z^{2k}}{(2k)!}\\
+    \frac{1}{1-z} & = \sum_{k=0}^{\infty} z^k \quad \textcolor{blue}{(\left\lvert z \right\rvert < 1)}\\
+    \frac{1}{1+z} & = \sum_{k=0}^{\infty} (-1)^k z^k \quad \textcolor{blue}{(\left\lvert z \right\rvert < 1)}\\
+    \ln z & = 2n\mpi\mi + \sum_{k=1}^{\infty} \frac{(-1)^{k+1} (z-1)^k}{k} \quad \textcolor{blue}{(\left\lvert z-1 \right\rvert < 1)}\\
+    (1+z)^m & = 1^m (\sum_{k=0}^{\infty} \frac{m! z^k}{(m-k)!k!}), \quad \textcolor{blue}{(\left\lvert z \right\rvert < 1)}
+\end{align*}
+其中 $1^m=e^{\mi mn 2\mpi}$ ($n$ 为整数)，\textcolor{blue}{$m$ 不是整数}。
+(\textcolor{red}{指数为非整数的二项式定理})
+
+\noindent \colorstar[blue] 展开为泰勒级数/洛朗级数的方法：\\
+(1) \textcolor{blue}{定义。求各阶导数代入。}\\
+(2) \textcolor{blue}{利用初等函数的泰勒展开、变形和代换。}\\
+(3) \textcolor{blue}{逐项求导和积分。}
+
+\noindent \colorstar 柯西乘积表\\
+$(\sum_{k=0}^{\infty} a_k z^k)\cdot (\sum_{k=0}^{\infty} b_k z^k) = (\sum_{k=0}^{\infty} c_k z^k)$，
+其中 $c_k = \sum_{n=0}^{k} a_n b_{k-n}$ (\hyperref[fig:柯西乘积表的系数]{Fig.~\ref{fig:柯西乘积表的系数}})。
+
+\begin{figure}
+    \centering
+    \includegraphics{柯西乘积表的系数ck.pdf}
+    \caption{\label{fig:柯西乘积表的系数} 柯西乘积表的系数 $c_k$}
+\end{figure}
+
+\noindent \colorstar[blue] 求幂级数和函数的方法：\\
+(1) \textcolor{blue}{初等函数的泰勒展开的代换和变形}\\
+(2) \textcolor{blue}{柯西乘积表}
+\begin{example}{}
+    $\frac{1}{1-z^2} = (\frac{1}{1-z})(\frac{1}{1+z})$
+\end{example}
+\noindent (3) \textcolor{blue}{逐项求导或积分。}
+
+\section{解析延拓}
+
+\begin{defn}{解析延拓}{}
+    若 $f_1(z)$ 在 $\sigma_1$ 解析，$f_2(z)$ 在 $\sigma_2$ 解析，
+    且 $\sigma_1 \cap \sigma_2=\sigma_3\neq \phi$，在 $\sigma_3$ 上有$f_1(z)\equiv f_2(z)$，
+    则 $f_1(z)$ 和 $f_2(z)$ 互为彼此的解析延拓。
+\end{defn}
+
+解析延拓是唯一的。
+
+\noindent \colorstar[blue] 解析延拓的方法\\
+\ding{172} 泰勒级数展开\\
+\ding{173} 用函数关系：例如 $\Gamma(z)$\\
+\ding{173} 许瓦兹反射原理：若 $f(z)$ 在包括实轴在内的上半平面解析，
+且 $R'_2 \leqslant \left\lvert z-z_0 \right\rvert \leqslant R'_1$ 内一致收敛， 
+$f(z)$ 在实轴上值是实数，则 $\overline{f(\overline{z})}$ 是下半平面的解析延拓。
+
+\section{洛朗级数}
+
+\noindent 双边幂级数：
+\[\cdots + a_{-2} (z-z_0)^{-2} + a_{-1} (z-z_0)^{-1} + a_0 + a_{1} (z-z_0) + a_{2} (z-z_0)^{2} + \cdots. \quad (4)\]
+\textcolor{blue}{无限部分/主部：$\cdots + a_{-2} (z-z_0)^{-2} + a_{-1} (z-z_0)^{-1}$。
+$> R_2$，在更大的开域圆外一致收敛；}\\
+\textcolor{blue}{解析部分/正则部：$a_0 + a_{1} (z-z_0) + a_{2} (z-z_0)^{2} + \cdots$。
+$< R_1$，在更小的闭域圆内一致收敛。}
+
+\begin{align*}
+    \left\{ 
+    \begin{lgathered} 
+        \mbox{若\ }R_2<R_1,\quad R_2<\left\lvert z-z_0 \right\rvert <R_1 \mbox{\ 收敛环\ }\\ 
+        \mbox{若\ }R_2>R_1,\quad \mbox{则级数\,(4) 处处发散}
+    \end{lgathered}   
+    \right.
+\end{align*}
+
+\begin{defn}{幂级数展开定理}{}
+    设 $f(z)$ 在环形区域 $R_2<\left\lvert z-z_0 \right\rvert <R_1$ 的内部单值解析，
+    则对环域上任一点 $z$， $f(z)$ 可展为幂级数：
+    \[\mbox{\textcolor{blue}{洛朗展开}\quad}
+        f(z) = \sum_{k=-\infty}^{\infty} a_k (z-z_0)^k,
+    \mbox{\quad \textcolor{blue}{洛朗级数}}\]
+    其中 $a_k = \frac{1}{2\mpi\mi} \oint_{C}\;\frac{f(\xi)}{(\xi-z_0)^{k+1}}\dif \xi$， 
+    $C$ 为开环域内逆时针方向绕内圆一周的任一闭合曲线。    
+\end{defn}
+\begin{rmk}{}
+    \ding{172} 洛朗展开是唯一的；\ding{173} 两种展开的 $a_k$ 值不一样。
+\end{rmk}
+
+\noindent \colorstar[blue] 求洛朗展开的步骤 
+(\hyperref[fig:求洛朗级数的步骤]{Fig.~\ref{fig:求洛朗级数的步骤}})\\
+\ding{172} 找出所有奇点\\
+\ding{173} 对所有环域分别进行洛朗展开。(中心点若为解析点，中心域上则是一个泰勒展开)
+\begin{figure}
+    \centering
+    \includegraphics{求洛朗级数的步骤.pdf}
+    \caption{\label{fig:求洛朗级数的步骤} 求洛朗级数的步骤}
+\end{figure}
+
+\section{孤立奇点的分类}
+
+孤立奇点： $f(z)$ 在 $z_0$ 不可导，而在 $z_0$ 的任意小邻域内除 $z_0$ 外处处可导。
+
+非孤立奇点：在 $z_0$ 无论多么小的邻域内总可以找到除 $z_0$ 以外的不可导点。
+\begin{example}{}
+    $f(z) = \frac{1}{\sin \frac{1}{z}}$，$z_0=0$，
+    $z_k=\frac{1}{k\mpi}$ (\textcolor{blue}{非孤立奇点})，$k=1,2,\cdots$.
+\end{example}
+
+\begin{align*}
+    \mbox{孤立奇点}
+        \left\{ 
+        \begin{lgathered} 
+            \mbox{可去奇点：没有负幂项}\\ 
+            \mbox{极点：有限个负幂项}\\
+            \mbox{本性奇点：无限个负幂项}
+        \end{lgathered}   
+        \right.
+\end{align*}
+\begin{rmk}{}
+    \ding{172} $z_0$ 为可去奇点，$\lim_{z\to z_0} f(z) = a_0$。
+    函数在可去奇点的邻域上是有界的。可去奇点可以不作为奇点看待。\\
+    \ding{173} $z_0$ 为极点时，$\lim_{z\to z_0} f(z) = \infty$
+    \textcolor{blue}{(可作为奇点类型的判据)}。 阶，单极点\\
+    \colorstar 若主部可表示为 $\frac{\varphi(z)}{(z-z_0)^m}$，$\varphi(z_0)\neq 0$，则为 $m$ 阶。\\
+    若主部可表示为 $\frac{\varphi(z)}{\psi (z)}$，$\varphi(z_0)\neq 0$，$\psi (z_0) = 0$，
+    且 $z_0$ 是 $\psi (z)$ 的 $m$ 重零根，则为 $m$ 阶。\\
+    若 $z_0$ 是 $\frac{1}{f(z)}$ 的 $m$ 重零点，则 $z_0$ 是 $f(z)$ 的 $m$ 阶极点。\\
+    \ding{174} $z_0$ 为本性奇点，$\lim_{z\to z_0} f(z)$\ 不存在。\\
+    \ding{175} 上述 $z_0$ 都是有限远点。
+\end{rmk}
+
+$\infty$ 展开的洛朗级数正则部和主部名称互换，对应也有各种奇点。\\
+\ding{172} $\lim_{z\to \infty} f(z)$ 存在且有限，$\infty$ 为可去奇点。\\
+\ding{173} $f(z)$ 最高正幂次方为 $m$，$\infty$ 为 $m$ 阶极点。\\
+\ding{174} 若 $m$ 为 $\infty$，则 $\infty$ 为本性奇点。
+
+支点：解析型；极点型；本性奇点型
+
+在支点邻域的洛朗级数展开式，幂指数为分数。
+
+\noindent \textbf{ $\Gamma$ 函数} --- 第二类欧拉型积分
+\[\Gamma(z) = \int_0^\infty t^{z-1}e^{-t} \dif t,\quad \re z > 0\]
+基本性质：\\
+\ding{172} $\Gamma(1) = 1$\\
+\ding{173} $\Gamma(z+1) = z\cdot \Gamma(z)$\\
+\ding{174} $\Gamma(n) = (n-1)!,\quad n\in \Ns$\\
+\ding{175} $\Gamma(z)\Gamma(1-z) = \frac{\mpi}{\sin (\mpi z)}$\\
+\ding{176} $\Gamma(\frac{1}{2}) = \sqrt{\mpi} = 2\int_0^\infty e^{-r^2} \dif r 
+= \int_{-\infty}^\infty e^{-r^2} \dif r$\\
+$\Gamma(\frac{2n+1}{2}) = \frac{(2n-1)!!}{2^n} \sqrt{\mpi}$
+$\int_0^\infty r^p e^{-r^2} \dif r = \frac{1}{2} \Gamma(\frac{p+1}{2})$
+
+\noindent \textbf{Beta 函数}
+\[B(p,q) = \int_0^1 t^{p-1} (1-t)^{q-1} \dif t. \quad (\re p > 0, \re q > 0)\]
+$B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$
+
+\ifx\allfiles\undefined
+\end{document}
+\fi
