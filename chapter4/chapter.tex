@@ -1,0 +1,117 @@
+\ifx\allfiles\undefined
+\documentclass[12pt, a4paper, oneside, UTF8]{ctexbook}
+\def\path{../config}
+\input{../config/_config}
+\begin{document}
+% \input{../config/cover}
+\else
+\fi
+
+\chapter{留数定理}
+
+\section{留数定理}
+
+\[a_{-1} = \res f(z_0),\]
+\textcolor{blue}{$a_{-1}$ 为 $f(z)$ 在 $z_0$ 的留数 (或残数)。}
+
+\begin{defn}{留数定理}{}
+    设函数 $f(z)$ 在回路 $l$ 所围区域 $B$ 上除有限个孤立奇点 $b_1$, $b_2$, $\cdots$, $b_n$ 
+    外解析，在闭区域 $\overline{B}$ 上除  $b_1$, $b_2$, $\cdots$, $b_n$ 外连续，则：
+    \[\oint_l f(z) \dif z = 2 \mpi \mi \sum_{j=1}^{n} \res f(b_{j}).\]
+\end{defn}
+\noindent \colorstar $l$ 以外无 $\forall$ 有限远奇点时，
+$\ointclockwise_l f(z) \dif z = - 2 \mpi \mi a_{-1} = 2 \mpi \mi \res f(-\infty)$，
+其中 $\res f(-\infty) = - a_{-1}(\infty)$。\\
+\noindent \ding{172} 若 $z_0$ 是 $f(z)$ 的单极点，$\lim_{z\to z_0} ((z-z_0)f(z)) = \res f(z_0)$。\\
+\noindent \ding{173} 若 $f(z) = \frac{P(z)}{Q(z)}$，其中 $P(z)$，$Q(z)$ 在 $z_0$ 解析，
+$z_0$ 是 $Q(z)$ 的一阶零点，$P(z_0)\neq 0$，则 $z_0$ 为 $f(z)$ 的单极点，且 $\res f(z_0) = \frac{P(z_0)}{Q'(z_0)}$。\\
+\ding{174} 若 $z_0$ 是 $f(z)$ 的 $m$ 阶极点，
+\[\lim_{z\to z_0} ((z-z_0)^m f(z)) = a_{-m}\]
+\[\res f(z_0) = \lim_{z\to z_0} \frac{1}{(m-1)!} (\frac{\dif^{m-1}}{\dif z^{m-1}}
+((z-z_0)^m f(z))).\] 
+\ding{175} 若 $z_0$ 是 $f(z)$ 的本性奇点，$\res f(z_0) = a_{-1}(z_0)$。(只能展开为洛朗级数求)\\
+\textcolor{blue}{这 4 项均可作为极点判据和系数求法。}
+
+\noindent \colorstar[blue] 使用留数定理求解路积分的步骤：\\
+\ding{172} 找到所有奇点，判断奇点是否在 $l$ 内\\
+\ding{173} 判断 $l$ 内的奇点的类别\\
+\ding{174} 计算各奇点的留数\\
+\ding{175} 应用留数定理得到积分的值。
+
+\noindent \colorstar[blue] $f(z)$ \textcolor{blue}{(只有孤立奇点)} 在全平面上所有各点的留数之和为零。\\
+\colorstar[blue] 求有些极限复杂的情况，可以先乘 $(z-z_0)^m$，再使用洛必达法则。
+
+
+\section{应用留数定理计算实变函数定积分}
+
+\noindent \textbf{类型一}
+\[\int_0^{2\mpi} R(\cos x, \sin x) \dif x\]
+令 $z = e^{\mi x}$，有 $\cos x = \frac{1}{2} (z + z^{-1})$，
+$\sin x = \frac{1}{2\mi} (z - z^{-1})$，$\dif x = \frac{1}{\mi z} \dif z$。\\
+原积分转化为 
+$I = \oint_{\left\lvert z\right\rvert} R(\frac{z+z^{-1}}{2}, \frac{z-z^{-1}}{2\mi})
+\frac{\dif z}{\mi z}$。
+
+\noindent \textbf{类型二}
+\[\int_{-\infty}^{\infty} f(x) \dif x,\]
+\ding{172}  $f(z)$ 在实轴上无奇点；
+\ding{173}  $f(z)$ 在上半平面除有限个奇点外是解析的；
+\ding{174}  当 $z$ 在上半平面及实轴上 $\to\infty$ 时，$zf(z)$ 一致地 $\to 0$。
+
+若 $f(x) = \frac{\varphi(x)}{\psi(x)}$，上述条件意味着 $\psi(x)$ 没有实的零点，
+$\psi(x)$ 的次数至少高于 $\varphi(x)$ 两次。
+
+\noindent 主值\quad $\mathscr{T} \int_{-\infty}^{\infty} f(x) \dif x 
+= \lim_{R\to\infty} \int_{-R}^{R} f(x) \dif x$
+% TODO: \mathscr{T}
+\[\int_{-\infty}^{\infty} f(x) \dif x = 2\mpi \mi \{f(z)\mbox{\ 在上半平面所有奇点的留数之和}\}\]
+
+\noindent \textbf{类型三}
+\[\int_{0}^{\infty} F(x) \cos mx \dif x,\]
+\[\int_{0}^{\infty} G(x) \sin mx \dif x,\]
+并满足：\ding{172} 积分区间是 $[0, +\infty]$；\\
+\ding{173} 偶函数 $F(z)$和奇函数 $G(z)$ 在实轴上没有奇点，
+在上半平面除有限个奇点外是解析的；\\
+\ding{174} 当 $z$ 在上半平面或实轴上 $\to\infty$ 时，$F(z)$ 和 $G(z)$ 一致地 $\to 0$。
+\[\int_{0}^{\infty} F(x) \cos mx \dif x = 
+\mpi \mi \{ F(z) e^{\mi m z} \mbox{\ 在上半平面所有奇点的留数之和}\},\]
+\[\int_{0}^{\infty} G(x) \sin mx \dif x = 
+\mpi \{ G(z) e^{\mi m z} \mbox{\ 在上半平面所有奇点的留数之和}\}.\]
+\noindent \colorstar 约当引理
+
+\noindent 实轴上有单极点的情形：\\
+(1) $f(x)$ 在实轴上有单极点 $z=\alpha$，$f(z)$ 满足类型二或类型三的条件, 则：
+\[\int_{-\infty}^{\infty} f(x) \dif x = 2\mpi \mi \sum_{\mbox{上半平面}} \res f(z) + \mpi \mi \res f(\alpha).\]
+(2) 若实轴上有有限个单极点，为：
+\[\int_{-\infty}^{\infty} f(x) \dif x = 2\mpi \mi \sum_{\mbox{上半平面}} \res f(z) + \mpi \mi \sum_{\mbox{实轴上}}\res f(z).\]
+
+\noindent \colorstar $\int_{0}^{\infty} \frac{\sin mx}{x} \dif x = \frac{\mpi}{2}\quad (m>0)$，
+$\int_{0}^{\infty} \frac{\sin mx}{x} \dif x = - \frac{\mpi}{2}\quad (m<0)$
+
+
+\noindent \textbf{类型三公式的推广}
+\begin{align*}
+    \int_{-\infty}^{\infty} f(x) 
+    \left\{ 
+    \begin{lgathered} 
+        \cos mx\\
+        \sin mx
+    \end{lgathered}   
+    \right\}
+    \dif x,\quad (m>0)
+\end{align*}
+当 $f(z)$ 在实轴无奇点，在上半平面除了有限个孤立奇点 $z_k$，$(k=1,2,\cdots,n)$ 之外处处解析，
+且 $f(z)$ 在包含实轴的上半平面，
+当 $z\to\infty$ 时， $f(z)$ 一致趋于 $0$，则：
+\[\int_{-\infty}^{\infty} f(x) e^{\mi m x} \dif x 
+= 2 \mpi \mi \sum_{k=1}^n \res (f(z_k)\cdot e^{\mi m z_k}),\]
+其中，$\res (f(z_k)\cdot e^{\mi m z_k})$ 是 $f(z)\cdot e^{\mi m z}$ 的留数。\\
+\textcolor{blue}{(无奇偶函数的限制了)}\\
+\textcolor{red}{实部$=$实部，虚部$=$虚部}
+
+\noindent \textbf{类型四}\ 含对数函数的积分
+\[\int_{0}^{\infty} f(x) \ln x \dif x.\]
+
+\ifx\allfiles\undefined
+\end{document}
+\fi

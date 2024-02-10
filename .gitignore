@@ -7,3 +7,5 @@
 *.dtmp
 *.pdf
 test.tex
+*.log
+figure/~$复变函数总结图.pptx
